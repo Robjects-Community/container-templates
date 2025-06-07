@@ -3,9 +3,9 @@ services:
     image: opcrouter/runtime:latest
     restart: unless-stopped
     ports:
-      - "49420:49420"
-      - "8080:8080"
-      - "8081:8081"
+      - 49420:49420
+      - 8080:8080
+      - 8081:8081
     environment:
       - OR_I_ACCEPT_EULA=${OR_I_ACCEPT_EULA}
       - INITIAL_USERNAME=${INITIAL_USERNAME}
@@ -22,5 +22,8 @@ services:
         target: /var/log/opcrouter
 volumes:
   opcrouter-configdb:
+    - /volume1/docker/swarm/edge_group_webadapters/configdb
   opcrouter-inray:
+    - /volume1/docker/swarm/edge_group_webadapters/inray
   opcrouter-logs:
+    - /volume1/docker/swarm/edge_group_webadapters/logs
